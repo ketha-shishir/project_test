@@ -6,10 +6,14 @@ WORKDIR /app
 
 # Install Miniconda
 RUN apt-get update && apt-get install -y wget \
-    && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-    && bash Miniconda3-latest-Linux-x86_64.sh -b \
-    && rm Miniconda3-latest-Linux-x86_64.sh \
-    && apt-get clean
+    && if [ "$(uname -m)" = "aarch64" ]; then \
+           wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh -O miniconda.sh; \
+       else \
+           wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh; \
+       fi \
+    && bash miniconda.sh -b \
+    && rm miniconda.sh \
+    && apt-get clean   
 
 # Install Mamba using Miniconda
 RUN /root/miniconda3/bin/conda install mamba -c conda-forge
