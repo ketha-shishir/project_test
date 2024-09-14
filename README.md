@@ -33,11 +33,16 @@ cd csusb_fall2024_cse6550_team2
 Make sure Docker is installed and running on your machine. Build the Docker image using the following command:
 
 ```
+<<<<<<< HEAD
 docker build -t team2-app .
+=======
+docker build -t se-pro-team2 .
+>>>>>>> b4f2a632f5a4fd2f575297488ef88eca6558bf14
 ```
 
 ### Step 4: Run the Docker Container
 
+<<<<<<< HEAD
 **Windows** - Make sure Docker Desktop application is open in your local machine
 
 Run the Docker container to start the application. Use the command below:
@@ -48,3 +53,13 @@ docker run -p 5002:5002 -p 8888:8888 team2-app
 
 You can access the application at:
 http://127.0.0.1:5002/ or http://localhost:5002/
+=======
+Run the Docker container to start the application. Use the command below:
+
+```
+docker run -p 5002:5002 -p 8888:8888 se-pro-team2
+```
+
+You can access the application at:
+http://127.0.0.1:5002/ or http://localhost:5002/
+>>>>>>> b4f2a632f5a4fd2f575297488ef88eca6558bf14
